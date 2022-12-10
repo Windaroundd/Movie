@@ -1,0 +1,113 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 80vh;
+}
+.swiper-pagination-bullet {
+  background: #fff !important;
+  opacity: 1 !important;
+  border: 0 solid #fff !important;
+}
+.swiper-pagination-bullet-active {
+  width: 15px !important;
+  height: 15px !important;
+  background: rgba(0, 0, 0, 0) !important;
+  border: 4px solid #fff !important;
+}
+.swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.movie-slide {
+  background-image: url(https://www.dadi.my/static/img/bg1.44f3d84.png);
+}
+.movie-slide img {
+  width: 95%;
+  height: 456px;
+}
+.movie-slide .swiper {
+  overflow: visible !important;
+}
+
+.movie-slide .swiper-slide {
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: white;
+  font-size: 30px !important;
+  font-weight: bold !important;
+}
+.swiper-button-prev:hover:after,
+.swiper-button-next:hover:after {
+  color: #f56565;
+}
+.footer {
+  background-image: url(https://www.dadi.my/static/img/bg4.da18dd2.png);
+}
+.footer ul li:hover {
+  color: #f56565;
+}
+.footer-bot_left a:hover {
+  color: #f56565;
+  cursor: pointer;
+}
+
+.authorium-slide img {
+  object-fit: cover !important;
+  height: 100%;
+}
+.slide-detail_bot {
+  position: absolute;
+
+  left: 9px;
+  bottom: 0;
+  right: -1px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 0.5s;
+  transition: all 0.3s;
+  width: 95% !important;
+  padding: 10px 20px 20px;
+}
+
+.swiper-slide:hover .slide-detail_bot {
+  -webkit-transform: translateY(0) translateX(-1px);
+  transform: translateY(0) translateX(-1px);
+}
+.rated {
+  display: inline-block;
+  border: 1px solid #f8b800;
+  color: #f8b800;
+  line-height: 1.1;
+  padding: 0 10px;
+  border-radius: 30px;
+  position: relative;
+  top: -2px;
+}

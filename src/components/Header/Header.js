@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import "./headerStyle.css";
 
@@ -12,12 +13,12 @@ export default class Header extends Component {
             <div className="ml-2 mr-2 ">Destination</div>
             <i className="fa fa-chevron-down" />
             <div className="top-login ml-5 pl-5 border-l-2 border-gray-500">
-              <a
-                href="#"
+              <Link
+                to=""
                 className="leading-6 rounded-md bg-red-500 text-white py-1 px-3 mr-1"
               >
                 Login
-              </a>
+              </Link>
             </div>
             <div className="top-share ">
               <a
@@ -34,59 +35,59 @@ export default class Header extends Component {
           </div>
           <div className="bot-header flex justify-between items-center pb-2">
             <div className="header-logo">
-              <a href="#">
+              <Link to="/">
                 <img src="./image/logo.png" alt="" />
-              </a>
+              </Link>
             </div>
             <nav className="">
               <ul className="font-bold flex flex-row ">
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    href="#/film/index"
+                    to="film"
                   >
                     Movies
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    href="#/sell/index"
+                    to="#/sell/index"
                   >
                     Food & Beverage
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    href="#/experience/index"
+                    to="#/experience/index"
                   >
                     Experiences
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    href="#/other/activity"
+                    to="#/other/activity"
                   >
                     Promotions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    href="#/event/index"
+                    to="#/event/index"
                   >
                     Events
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="py-4 text-lg text-yellow-500 hover:border-b-2 hover:text-yellow-500 border-yellow-500"
-                    href="#/other/U"
+                    to="#/other/U"
                   >
                     U+
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
