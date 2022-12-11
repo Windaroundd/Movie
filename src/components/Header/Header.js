@@ -44,7 +44,7 @@ export default class Header extends Component {
                 <li>
                   <Link
                     className="py-4 text-lg hover:border-b-2 hover:text-red-500 border-red-500"
-                    to="film"
+                    to="movies"
                   >
                     Movies
                   </Link>

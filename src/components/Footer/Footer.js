@@ -111,6 +111,17 @@ export default class Footer extends Component {
                   <a>Term & Condition</a>
                   <span className="mx-4">|</span>
                   <a>Disclaimers</a>
+                  <span className="mx-4">|</span>
+                  <span className="items-center">
+                    Clone by:
+                    <a
+                      className="text-red-600 ml-4"
+                      href="https://www.facebook.com/addmeheree"
+                      target="_blank"
+                    >
+                      HUYNH QUANG MINH PHONG
+                    </a>{" "}
+                  </span>
                 </p>
               </div>
               <div className="ml-8">

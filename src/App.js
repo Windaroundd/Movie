@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
+import Movies from "./components/Body/Movies/Movies";
+import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
             {/* <Route path="/index" element={<Header />}></Route>
             <Route path="/index" element={<Footer />}></Route> */}
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
