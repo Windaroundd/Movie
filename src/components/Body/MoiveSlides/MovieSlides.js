@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import axios from "axios";
-import { TOKEN_CYBERSOFT } from "../../../services/ApiServices/apiServices";
+
 import {
   COMING_SOON,
   NOW_SHOWING,
@@ -14,20 +13,18 @@ import "swiper/css/navigation";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
+import { userServices } from "../../../services/ApiServices/userServices";
 
 export default function MovieSlides() {
   let [nowShowing, setNowShowing] = useState([]);
   let [comingSoon, setComingSoon] = useState([]);
   let [status, setStatus] = useState(NOW_SHOWING);
   let [isActive, setActive] = useState("flase");
+  let isShowing = true;
+  let isComing = true;
   useEffect(() => {
-    axios({
-      url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP03",
-      method: "GET",
-      headers: {
-        TokenCybersoft: TOKEN_CYBERSOFT,
-      },
-    })
+    userServices
+      .getMovieList()
       .then((res) => {
         filterMovieByStatus(res.data.content);
       })
@@ -35,20 +32,20 @@ export default function MovieSlides() {
         console.log("err: ", err);
       });
   }, []);
-  useEffect(() => {}, []);
+
   let filterMovieByStatus = (MovieDataArr) => {
     let cloneNowShowingMovie = [...nowShowing];
     let cloneComingSoonMovie = [...comingSoon];
 
     for (let i = 0; i < MovieDataArr?.length; i++) {
       if (
-        MovieDataArr[i].dangChieu == true &&
-        MovieDataArr[i].sapChieu == false
+        MovieDataArr[i].dangChieu == isShowing &&
+        MovieDataArr[i].sapChieu != isComing
       ) {
         cloneNowShowingMovie.push(MovieDataArr[i]);
       } else if (
-        MovieDataArr[i].dangChieu == false &&
-        MovieDataArr[i].sapChieu == true
+        MovieDataArr[i].dangChieu != isShowing &&
+        MovieDataArr[i].sapChieu == isComing
       ) {
         cloneComingSoonMovie.push(MovieDataArr[i]);
       }
@@ -62,10 +59,12 @@ export default function MovieSlides() {
       return nowShowing?.map((movie, index) => {
         return (
           <SwiperSlide className="relative overflow-hidden" key={index}>
-            <img className=" rounded-xl" src={movie.hinhAnh} alt="" />
+            <Link to={`/detail/${movie.maPhim}`} className="w-full h-full">
+              <img className=" rounded-xl" src={movie.hinhAnh} alt="" />
+            </Link>
             <div className="absolute slide-detail_bot rounded-b-xl text-white">
               <div className="text-left">
-                <span className="text-2xl font-semibold">{movie.tenPhim}</span>
+                <span className="text-xl font-bold">{movie.tenPhim}</span>
                 <i className="rated ml-2 text-sm">
                   <span className="">{movie.danhGia}.0 IMDB</span>
                 </i>
@@ -83,7 +82,9 @@ export default function MovieSlides() {
       return comingSoon?.map((movie, index) => {
         return (
           <SwiperSlide className="relative overflow-hidden" key={index}>
-            <img className=" rounded-xl" src={movie.hinhAnh} alt="" />
+            <Link to={`/detail/${movie.maPhim}`} className="w-full h-full">
+              <img className=" rounded-xl" src={movie.hinhAnh} alt="" />
+            </Link>
             <div className="absolute slide-detail_bot rounded-b-xl text-white ">
               <div className="text-left">
                 <span className="text-2xl font-semibold">{movie.tenPhim}</span>
@@ -104,28 +105,23 @@ export default function MovieSlides() {
   };
   let handleChangeStatus = (status) => {
     handleToggleClass();
-    switch (status) {
-      case NOW_SHOWING:
-        return setStatus(NOW_SHOWING);
-
-      case COMING_SOON:
-        return setStatus(COMING_SOON);
-    }
+    setStatus(status);
   };
+
   let handleToggleClass = () => {
     setActive(!isActive);
   };
   return (
     <div className="movie-slide py-12">
       <div className="container overflow-x-hidden overflow-y-hidden ">
-        <div className="ml-4 flex gap-5 mb-5 text-4xl   ">
+        <div className="ml-4 flex  mb-5 text-4xl   ">
           <div
             onClick={() => {
               handleChangeStatus(NOW_SHOWING);
             }}
             className={`cursor-pointer ${
               isActive ? "text-white font-bold" : "text-gray-400"
-            }`}
+            } mr-5`}
           >
             Now Showing
           </div>

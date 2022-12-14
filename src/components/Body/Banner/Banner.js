@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { Fragment, useEffect, useState } from "react";
-import { TOKEN_CYBERSOFT } from "../../../services/ApiServices/apiServices";
+import React, { useEffect, useState } from "react";
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,17 +11,13 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Navigation, Pagination } from "swiper";
+import { userServices } from "../../../services/ApiServices/userServices";
 
 export default function Banner() {
   let [banner, setBanner] = useState([]);
   useEffect(() => {
-    axios({
-      url: "https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner",
-      method: "GET",
-      headers: {
-        TokenCybersoft: TOKEN_CYBERSOFT,
-      },
-    })
+    userServices
+      .getBannerList()
       .then((res) => {
         setBanner(res.data.content);
       })
@@ -38,7 +34,7 @@ export default function Banner() {
   };
 
   return (
-    <div className="bg-black ">
+    <div className="bg-black banner">
       <Swiper
         dir="rtl"
         pagination={{

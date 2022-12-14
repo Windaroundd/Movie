@@ -87,17 +87,17 @@ export default class Footer extends Component {
                     <Link>Follow us</Link>
                   </li>
                   <div className="flex ml-3 justify-start">
-                    <a
+                    <Link
                       href="https://www.facebook.com/dadicinema"
                       target="_blank"
                       className="fab fa-facebook-square text-4xl ml-4 mr-2 hover:text-red-500  "
-                    ></a>
+                    ></Link>
 
-                    <a
+                    <Link
                       href="https://www.instagram.com/dadicinema_my/"
                       target="_blank"
                       className="fab fa-instagram text-4xl hover:text-red-500 "
-                    ></a>
+                    ></Link>
                   </div>
                 </ul>
               </div>
@@ -106,21 +106,21 @@ export default class Footer extends Component {
             <div className="footer-bot flex justify-between pb-10">
               <div className="text-gray-400">
                 <p className="footer-bot_left">
-                  <a>Privacy Policy</a>
+                  <Link>Privacy Policy</Link>
                   <span className="mx-4">|</span>
-                  <a>Term & Condition</a>
+                  <Link>Term & Condition</Link>
                   <span className="mx-4">|</span>
-                  <a>Disclaimers</a>
+                  <Link>Disclaimers</Link>
                   <span className="mx-4">|</span>
                   <span className="items-center">
                     Clone by:
-                    <a
+                    <Link
                       className="text-red-600 ml-4"
                       href="https://www.facebook.com/addmeheree"
                       target="_blank"
                     >
                       HUYNH QUANG MINH PHONG
-                    </a>{" "}
+                    </Link>{" "}
                   </span>
                 </p>
               </div>

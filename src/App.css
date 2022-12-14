@@ -1,3 +1,6 @@
+body {
+  background: black;
+}
 .swiper {
   width: 100%;
   height: 100%;
@@ -22,11 +25,13 @@
   align-items: center;
 }
 
+/**
 .swiper-slide img {
   display: block;
   width: 100%;
   height: 80vh;
 }
+*/
 .swiper-pagination-bullet {
   background: #fff !important;
   opacity: 1 !important;
@@ -47,9 +52,15 @@
 .movie-slide {
   background-image: url(https://www.dadi.my/static/img/bg1.44f3d84.png);
 }
+
+/**
 .movie-slide img {
   width: 95%;
   height: 456px;
+}
+*/
+.movie-slide .swiper-wrapper {
+  gap: 15px;
 }
 .movie-slide .swiper {
   overflow: visible !important;
@@ -81,11 +92,12 @@
 .authorium-slide img {
   object-fit: cover !important;
   height: 100%;
+  width: 100%;
 }
 .slide-detail_bot {
   position: absolute;
 
-  left: 9px;
+  left: 0px;
   bottom: 0;
   right: -1px;
   background: rgba(0, 0, 0, 0.7);
@@ -94,7 +106,7 @@
   transform: translateY(100%);
   -webkit-transition: all 0.5s;
   transition: all 0.3s;
-  width: 95% !important;
+  width: 100% !important;
   padding: 10px 20px 20px;
 }
 
@@ -102,6 +114,18 @@
   -webkit-transform: translateY(0) translateX(-1px);
   transform: translateY(0) translateX(-1px);
 }
+.movie-item:hover .slide-detail_bot {
+  -webkit-transform: translateY(0) translateX(-1px);
+  transform: translateY(0) translateX(-1px);
+}
+.movie-item {
+  height: 429px !important;
+}
+.movie-item img {
+  height: 100%;
+  width: 100%;
+}
+
 .rated {
   display: inline-block;
   border: 1px solid #f8b800;
@@ -111,4 +135,20 @@
   border-radius: 30px;
   position: relative;
   top: -2px;
+}
+.banner .swiper-slide img {
+  width: 100%;
+  height: 80vh !important;
+}
+.movie-slide .swiper-slide {
+  width: 290px !important;
+  height: 456px;
+}
+.movie-slide .swiper-slide img {
+  height: 100%;
+}
+
+.detail-img img {
+  width: 280px !important;
+  height: 440px !important;
 }
